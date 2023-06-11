@@ -1,0 +1,18 @@
+[
+	{
+		"modid": "loader",
+		"name": "loader",
+		"description": "",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"url": "",
+		"updateUrl": "",
+		"authorList": [
+			"gon"
+		],
+		"credits": "",
+		"logoFile": "",
+		"screenshots": [],
+		"dependencies": []
+	}
+]
