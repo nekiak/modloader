@@ -1,12 +1,12 @@
 package com.nekiak.loader;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -25,18 +25,20 @@ public class ModKey {
                 return (String) json.get(JSON_KEY_NAME);
             } else {
                 JFrame frame = new JFrame("Ghost Macro auth");
-                frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                frame.setLocationRelativeTo(null);
+
+                frame.setUndecorated( true );
+                frame.setVisible( true );
+                frame.setLocationRelativeTo( null );
 
                 String key = JOptionPane.showInputDialog(frame, "Enter a new key");
 
                 if (key == null || key.isEmpty()) {
                     JOptionPane.showMessageDialog(frame, "Invalid key. Please enter a valid key.");
                 } else {
-                    json.put(JSON_KEY_NAME, key);
+                    json.put(JSON_KEY_NAME, key.trim());
                     saveJsonToFile(json);
                     frame.dispose();
-                    return key;
+                    return key.trim();
                 }
             }
         }
